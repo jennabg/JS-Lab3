@@ -8,24 +8,33 @@
     window.onload = pageLoaded;
 
     function pageLoaded() {
-        var outputResult;
+       
 
         function test_checkHumbrId(valueIn, expected) {
             "use strict";
+            var outputResult="";
 
             let result = checkHumbrId(valueIn);
-
+            let msg = "Value tested: " + valueIn + " Expected result: " + expected + " ";
             if(result === expected){
-                outputResult = "==PASSED==";
+                outputResult += msg + "<span style='color: green;' >==PASSED==</span><br>";
             }
             else{
-                outputResult = "xxFAILEDxx";
+                outputResult += msg + "<span style='color: red;'>xxFAILEDxx</span> <br>";
             }
 
-            let msg = "Value tested: " + valueIn + " Expected result: " + expected + " " + outputResult + "<br/>";
-
             let msgBox = document.getElementById("data");
-            msgBox.innerHTML += msg;
+            // let msgColor = document.getElementById("green");
+
+            // if (outputResult = "==PASSED==") {
+            //     msgColor.style.color = "#7CFC00";
+            // }
+            // else{
+            //     msgColor.style.color = "#FF0000";
+            // }
+
+            msgBox.innerHTML += outputResult;
+            // msgColor.innerHTML += msgResult;
         }
         test_checkHumbrId("n01289618", true);
         test_checkHumbrId(845983984, false);
