@@ -1,4 +1,4 @@
-var studentNumX = /(n|N)\d{8}/;
+var studentNumX = /^(n|N)\d{8}$/;
 
 function checkHumbrId(studentNum){
 
@@ -7,7 +7,7 @@ function checkHumbrId(studentNum){
   if (studentNum == ''){
     validNum = false;
   }
-  else if (validNumX.test(studentNum)){
+  else if (studentNumX.test(studentNum)){
     validNum = true;
   }
   return validNum;
